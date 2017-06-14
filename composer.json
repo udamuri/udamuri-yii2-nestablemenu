@@ -3,7 +3,7 @@
     "description": "Yii2 nestablemenu",
     "type": "yii2-extension",
     "homepage": "https://github.com/udamuri/yii2-nestablemenu.git",
-    "keywords": ["yii2","extension","nestable","udamuri","menu"],
+    "keywords": ["yii2","extension","nestable","udamuri","menu", "muri budiman"],
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "udamuri/yii2-nestablemenu": "1.0.0"
+        "udamuri/yii2-nestablemenu": "~1.0"
     },
     "autoload": {
         "psr-4": {
