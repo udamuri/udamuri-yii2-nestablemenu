@@ -25,8 +25,8 @@ class TreeMenu extends \yii\base\Widget
     public $table_name = false;
     public $output = '';
     public $button = [];
-    public $delete_url = 'javascript:void(0);';
-    public $update_url = 'javascript:void(0);';
+    public $delete_url = false;
+    public $update_url = false;
 
     public function run()
     {
@@ -63,8 +63,19 @@ class TreeMenu extends \yii\base\Widget
                     $btn_status = '<button id="btn_status_'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" type="button" class="btn btn-primary btn-sm btn_status">ON</button>';
                 }
 
-                $submenu = ''; 
-                $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
+                $submenu = '';
+                if($this->delete_url !== false) {
+                    $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
+                } else {
+                    $btn_delete = '<button data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
+                }
+
+                if($this->update_url !== false) {
+                    $btn_update = '<a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>';
+                } else {
+                    $btn_update = '<button data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
+                }
+
                 if($submenu = $this->childMenu($value['menu_id'], $table))
                 {
                     $btn_delete = '';   
@@ -77,7 +88,7 @@ class TreeMenu extends \yii\base\Widget
                             <div class="dd-button">
                                 <div class="btn-group" role="group" aria-label="...">
                                     '.$btn_delete.'
-                                    <a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>
+                                    '.$btn_update.'
                                     '.$btn_status.'
                                 </div>
                             </div>';
@@ -143,7 +154,18 @@ class TreeMenu extends \yii\base\Widget
                 }
 
                 $submenu = ''; 
-                $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
+                if($this->delete_url !== false) {
+                    $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
+                } else {
+                    $btn_delete = '<button data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
+                }
+
+                if($this->update_url !== false) {
+                    $btn_update = '<a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>';
+                } else {
+                    $btn_update = '<button data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
+                }
+
                 if($submenu = $this->childMenu($value['menu_id'], $table))
                 {
                     $btn_delete = '';   
@@ -156,7 +178,7 @@ class TreeMenu extends \yii\base\Widget
                             <div class="dd-button">
                                 <div class="btn-group" role="group" aria-label="...">
                                   '.$btn_delete.'
-                                  <a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>
+                                  '.$btn_update.'
                                   '.$btn_status.'
                                 </div>
                             </div>';
