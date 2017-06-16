@@ -67,13 +67,13 @@ class TreeMenu extends \yii\base\Widget
                 if($this->delete_url !== false) {
                     $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
                 } else {
-                    $btn_delete = '<button data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
+                    $btn_delete = '<button type="button" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
                 }
 
                 if($this->update_url !== false) {
                     $btn_update = '<a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>';
                 } else {
-                    $btn_update = '<button data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
+                    $btn_update = '<button type="button" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
                 }
 
                 if($submenu = $this->childMenu($value['menu_id'], $table))
@@ -157,13 +157,13 @@ class TreeMenu extends \yii\base\Widget
                 if($this->delete_url !== false) {
                     $btn_delete = '<a href="'.$this->delete_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm">Delete</a>';
                 } else {
-                    $btn_delete = '<button data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
+                    $btn_delete = '<button type="button" data-id="'.$value['menu_id'].'" class="btn btn-danger btn-sm delete-nst-menu">Delete</button>';
                 }
 
                 if($this->update_url !== false) {
                     $btn_update = '<a href="'.$this->update_url.'/'.$value['menu_id'].'" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm">Update</a>';
                 } else {
-                    $btn_update = '<button data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
+                    $btn_update = '<button type="button" data-id="'.$value['menu_id'].'" class="btn btn-success btn-sm update-nst-menu">Delete</button>';
                 }
 
                 if($submenu = $this->childMenu($value['menu_id'], $table))
