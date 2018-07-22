@@ -18,6 +18,7 @@ class m161124_070732_create_news_nestamenu extends Migration
             'menu_sort' => $this->integer(3)->notNull(),
             'menu_title' => $this->string(100)->notNull(),
             'menu_link' => $this->string(255),
+            'menu_icon' => $this->string(255),
             'menu_status' => $this->smallInteger()->notNull()->defaultValue(1),
         ], $tableOptions);
     }
